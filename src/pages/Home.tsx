@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
-import { Leaf, Users, TrendingUp, Droplets } from 'lucide-react';
+import { Leaf, Users, TrendingUp, Droplets, ArrowRight, Sparkles, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { usePledges } from '@/contexts/PledgeContext';
+import heroForest from '@/assets/hero-forest.jpg';
+import communityHero from '@/assets/community-hero.jpg';
 
 const Home = () => {
   const { getAllPledges } = usePledges();
@@ -12,7 +15,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      <header className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Leaf className="h-8 w-8 text-primary" />
@@ -23,69 +26,171 @@ const Home = () => {
               <Button variant="outline">Login</Button>
             </Link>
             <Link to="/auth">
-              <Button>Get Started</Button>
+              <Button className="shadow-lg">Get Started</Button>
             </Link>
           </div>
         </div>
       </header>
 
-      <section className="py-20 px-4" style={{ background: 'var(--gradient-hero)' }}>
-        <div className="container mx-auto text-center max-w-4xl">
-          <h2 className="text-5xl font-bold mb-6 text-foreground">
-            Make a Difference, One Pledge at a Time
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Join our community of eco-warriors making real environmental impact. 
-            Track your green actions and inspire others to protect our planet.
-          </p>
-          <Link to="/auth">
-            <Button size="lg" className="shadow-lg">
-              Start Your Journey
-            </Button>
-          </Link>
+      {/* Hero Section with Image */}
+      <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={heroForest} 
+            alt="Beautiful green forest" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
         </div>
-      </section>
-
-      <section className="py-16 px-4 bg-background">
-        <div className="container mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">
-            Our Community Impact
-          </h3>
-          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            <div className="bg-card p-6 rounded-lg shadow-md border border-border text-center">
-              <Users className="h-12 w-12 text-primary mx-auto mb-3" />
-              <div className="text-3xl font-bold text-foreground">{allPledges.length}</div>
-              <div className="text-muted-foreground">Total Pledges</div>
+        
+        <div className="relative container mx-auto px-4 py-20">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full mb-6 border border-primary/20">
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Join the Green Movement</span>
             </div>
-            <div className="bg-card p-6 rounded-lg shadow-md border border-border text-center">
-              <TrendingUp className="h-12 w-12 text-primary mx-auto mb-3" />
-              <div className="text-3xl font-bold text-foreground">{completedPledges}</div>
-              <div className="text-muted-foreground">Completed</div>
-            </div>
-            <div className="bg-card p-6 rounded-lg shadow-md border border-border text-center">
-              <Leaf className="h-12 w-12 text-primary mx-auto mb-3" />
-              <div className="text-3xl font-bold text-foreground">{totalImpact}</div>
-              <div className="text-muted-foreground">Total Impact</div>
-            </div>
-            <div className="bg-card p-6 rounded-lg shadow-md border border-border text-center">
-              <Droplets className="h-12 w-12 text-primary mx-auto mb-3" />
-              <div className="text-3xl font-bold text-foreground">Active</div>
-              <div className="text-muted-foreground">Community</div>
+            
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground leading-tight">
+              Make a Difference, One Pledge at a Time
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Join our community of eco-warriors making real environmental impact. 
+              Track your green actions and inspire others to protect our planet.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/auth">
+                <Button size="lg" className="shadow-lg hover:shadow-xl transition-all">
+                  Start Your Journey
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/community">
+                <Button size="lg" variant="outline" className="shadow-lg bg-background/50 backdrop-blur-sm">
+                  Explore Community
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-secondary">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h3 className="text-3xl font-bold mb-6 text-foreground">Our Mission</h3>
-          <p className="text-lg text-muted-foreground mb-8">
-            We believe that small actions create big change. Every pledge you make contributes 
-            to a healthier planet. Together, we can create a sustainable future for generations to come.
-          </p>
-          <Link to="/auth">
-            <Button size="lg" variant="outline">Join Us Today</Button>
-          </Link>
+      {/* Impact Stats Section */}
+      <section className="py-20 px-4 bg-background">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold mb-4 text-foreground">
+              Our Community Impact
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Real people making real change. Together we're building a sustainable future.
+            </p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex p-4 bg-primary/10 rounded-2xl mb-4">
+                  <Users className="h-10 w-10 text-primary" />
+                </div>
+                <div className="text-4xl font-bold text-foreground mb-2">{allPledges.length}</div>
+                <div className="text-muted-foreground font-medium">Total Pledges</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex p-4 bg-primary/10 rounded-2xl mb-4">
+                  <TrendingUp className="h-10 w-10 text-primary" />
+                </div>
+                <div className="text-4xl font-bold text-foreground mb-2">{completedPledges}</div>
+                <div className="text-muted-foreground font-medium">Completed</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex p-4 bg-primary/10 rounded-2xl mb-4">
+                  <Leaf className="h-10 w-10 text-primary" />
+                </div>
+                <div className="text-4xl font-bold text-foreground mb-2">{totalImpact}</div>
+                <div className="text-muted-foreground font-medium">Total Impact</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex p-4 bg-primary/10 rounded-2xl mb-4">
+                  <Droplets className="h-10 w-10 text-primary" />
+                </div>
+                <div className="text-4xl font-bold text-foreground mb-2">Active</div>
+                <div className="text-muted-foreground font-medium">Community</div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Section with Image */}
+      <section className="py-20 px-4 bg-secondary relative overflow-hidden">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20 hidden lg:block">
+          <img src={communityHero} alt="Community planting trees" className="w-full h-full object-cover" />
+        </div>
+        
+        <div className="container mx-auto max-w-6xl relative">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
+              <Heart className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium text-primary">Our Mission</span>
+            </div>
+            
+            <h3 className="text-4xl font-bold mb-6 text-foreground">
+              Small Actions, Big Change
+            </h3>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              We believe that every action counts. Whether it's planting a tree, reducing plastic, 
+              or conserving water - your pledges contribute to a healthier planet. Join thousands 
+              of eco-warriors creating a sustainable future for generations to come.
+            </p>
+            
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg mt-1">
+                  <Leaf className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">Track Your Impact</h4>
+                  <p className="text-muted-foreground">Monitor your environmental contributions with detailed analytics</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg mt-1">
+                  <Users className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">Join the Community</h4>
+                  <p className="text-muted-foreground">Connect with like-minded individuals making a difference</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-primary/10 rounded-lg mt-1">
+                  <TrendingUp className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">See Real Results</h4>
+                  <p className="text-muted-foreground">Visualize the collective impact of our global community</p>
+                </div>
+              </div>
+            </div>
+            
+            <Link to="/auth">
+              <Button size="lg" className="shadow-lg">
+                Join Us Today
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>
