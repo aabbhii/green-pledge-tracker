@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# 🌱 Green Pledge Tracker 
+Inspiring Sustainable Living Through Collective Action 
 
-## Project info
+The Green Pledge Tracker is a full-stack web application built to inspire individuals and communities to take meaningful steps toward environmental sustainability. Users can register, make personal eco-friendly pledges, and track their environmental impact over time. 
 
-**URL**: https://lovable.dev/projects/4e49518d-4986-4a2d-925f-33cd43fa4bdc
+This platform promotes a sense of collective responsibility by displaying both individual and community-wide achievements — turning small personal efforts into a big difference for the planet. 
 
-## How can I edit this code?
+## 🌍 Features 
+### 👤 User Authentication 
 
-There are several ways of editing your application.
+- Secure login and registration using Supabase Authentication. 
+- Personal user profiles with editable information. 
 
-**Use Lovable**
+### 🌿 Personal Pledge Tracker 
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4e49518d-4986-4a2d-925f-33cd43fa4bdc) and start prompting.
+Users can create and manage personal pledges like: 
 
-Changes made via Lovable will be committed automatically to this repo.
+- 🌳 Planting trees 
+- 💧 Saving water 
+- ♻ Reducing plastic use 
+- 🚴 Using public transport 
 
-**Use your preferred IDE**
+Track the progress and completion of each pledge. 
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+View statistics of your cumulative environmental impact. 
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🌏 Community Dashboard 
 
-Follow these steps:
+- Displays aggregated global impact from all users. 
+- Leaderboard highlighting top contributors. 
+- Motivational messages to keep users engaged and inspired. 
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 📊 Data Visualization 
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Clean, insightful charts showing your progress over time. 
+- Comparison between personal and community contributions. 
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🌼 Additional Highlights 
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- Green, nature-inspired modern UI with Tailwind CSS. 
+- Responsive design — works seamlessly on desktop and mobile. 
+- Optional dark/light mode for better accessibility. 
+
+## 🧠 Tech Stack 
+| Layer | Technology Used |
+|-------|----------------|
+| Frontend | React.js + Tailwind CSS |
+| Backend | Supabase (Database + Authentication) |
+| Database | PostgreSQL (via Supabase) |
+| Visualization | Recharts / Chart.js |
+| Hosting | Vercel / Netlify (Frontend) + Supabase (Backend) |
+
+## 🪴 How It Works 
+
+1. **Sign Up / Log In**: 
+   - Users register with Supabase authentication. 
+
+2. **Create a Pledge**: 
+   - Add a new environmental commitment (e.g., "Plant 10 trees this month"). 
+
+3. **Track Impact**: 
+   - Monitor how your actions contribute over time using charts and stats. 
+
+4. **Join the Community**: 
+   - See collective progress, compare with others, and celebrate sustainability milestones together. 
+
+## 📸 Screens (Example Layouts) 
+
+(To be added once the UI is ready — include screenshots of dashboard, community page, and pledge creation form.) 
+
+## 💡 Future Enhancements 
+
+- 🌤 Daily Green Tip section for eco-friendly ideas. 
+- 🏅 Badges/Achievements for consistent contributors. 
+- 🕊 Social Sharing for completed pledges. 
+- 🌐 Location-based impact stats (city or region view). 
+
+## 🚀 Getting Started 
+1. Clone the repository 
+```
+git clone https://github.com/yourusername/green-pledge-tracker.git
+cd green-pledge-tracker
+```
+
+2. Install dependencies 
+```
+npm install
+```
+
+3. Configure Supabase 
+
+   - Create a project at https://supabase.io 
+   - Copy your project's API URL and Anon Key. 
+   - Add them to your .env file: 
+
+```
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+4. Run the app 
+```
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🤝 Contributing 
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Contributions are welcome! Feel free to fork this repository, open issues, or submit pull requests to enhance the app. 
 
-**Use GitHub Codespaces**
+## 📜 License 
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project is licensed under the MIT License — feel free to use, modify, and share. 
 
-## What technologies are used for this project?
+## 💚 Acknowledgements 
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/4e49518d-4986-4a2d-925f-33cd43fa4bdc) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- [Supabase](https://supabase.io) for backend and authentication. 
+- [React](https://reactjs.org) for UI. 
+- [Tailwind CSS](https://tailwindcss.com) for modern styling. 
+- [Chart.js](https://www.chartjs.org) for beautiful data visualization.
