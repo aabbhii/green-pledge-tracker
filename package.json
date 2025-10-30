@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "server": "node --experimental-modules --es-module-specifier-resolution=node src/server/index.ts",
     "dev:server": "nodemon --exec ts-node src/server/index.ts",
-    "server:js": "node src/server/server.js"
+    "server:js": "node src/server/server.js",
+    "start": "vite preview --port $PORT --host"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
