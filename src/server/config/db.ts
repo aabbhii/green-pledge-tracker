@@ -3,13 +3,11 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGODB_URI = 'mongodb://localhost:27017/GreenPledgeTracker';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/GreenPledgeTracker';
 
 export const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(MONGODB_URI, {
-      serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
-    });
+    const conn = await mongoose.connect(MONGODB_URI);
 
     console.log('MongoDB connected successfully');
     console.log(`Database name: ${conn.connection.name}`);
