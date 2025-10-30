@@ -1,11 +1,12 @@
-import { useAuth } from '@/contexts/AuthContext';
-import { usePledges } from '@/contexts/PledgeContext';
+import { useAuth } from '../contexts/AuthContext';
+import { usePledges } from '../contexts/PledgeContext';
 import { Navigate, Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
+import { Button } from '../components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Progress } from '../components/ui/progress';
 import { Leaf, Plus, CheckCircle, Circle, TrendingUp, Award, Target, BarChart3 } from 'lucide-react';
-import analyticsBg from '@/assets/analytics-bg.jpg';
+import analyticsBg from '../assets/analytics-bg.jpg';
+import { PledgeTimeline } from '../components/PledgeTimeline';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -195,7 +196,13 @@ const Dashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm mb-4 text-muted-foreground">{pledge.description}</p>
-                      <div className="flex items-center justify-between pt-3 border-t border-border">
+                      
+                      {/* Pledge Timeline Component */}
+                      <div className="mt-4 pt-4 border-t border-border">
+                        <PledgeTimeline pledge={pledge} />
+                      </div>
+                      
+                      <div className="flex items-center justify-between pt-3 border-t border-border mt-4">
                         <div className="flex items-center gap-2 text-sm">
                           <Leaf className="h-4 w-4 text-primary" />
                           <span className="font-semibold text-primary">{pledge.impactMetric} {pledge.impactUnit}</span>
