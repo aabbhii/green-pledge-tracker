@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Leaf, Users, TrendingUp, Droplets, ArrowRight, Sparkles, Heart } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { usePledges } from '@/contexts/PledgeContext';
-import heroForest from '@/assets/hero-forest.jpg';
-import communityHero from '@/assets/community-hero.jpg';
+import { Button } from '../components/ui/button';
+import { Card, CardContent } from '../components/ui/card';
+import { usePledges } from '../contexts/PledgeContext';
+import heroForest from '../assets/hero-forest.jpg';
+import communityHero from '../assets/community-hero.jpg';
 
 const Home = () => {
   const { getAllPledges } = usePledges();
